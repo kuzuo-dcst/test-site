@@ -1,5 +1,5 @@
-// モデルパスを指定
-const modelPath = "./model/model.json";
+// モデルパスを指定（モデル名「ukyo」に変更）
+const modelPath = "./model/ukyo/ukyo.model3.json";
 const canvas = document.getElementById("live2dCanvas");
 
 // Live2D SDKの読み込み
@@ -27,11 +27,10 @@ async function loadLive2DModel() {
             model.motion("TapBody");
         });
 
-        console.log("モデルが表示されました！");
+        console.log("ukyoモデルが表示されました！");
     } catch (e) {
-        console.error("モデルの読み込みに失敗しました:", e);
+        console.error("ukyoモデルの読み込みに失敗しました:", e);
     }
 }
 
 loadLive2DModel();
-
