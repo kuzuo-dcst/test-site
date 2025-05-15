@@ -1,5 +1,5 @@
-// モデルパスを指定（モデル名「ukyo」に変更）
-const modelPath = "./model/ukyo/model.json";
+// モデルパスを指定（モデル名「ukyo」に修正）
+const modelPath = "./model/ukyo/ukyo.model3.json";
 const canvas = document.getElementById("live2dCanvas");
 
 // Live2D SDKの読み込み
