@@ -2,17 +2,14 @@
 const modelPath = "./model/ukyo/ukyo.model3.json";
 const canvas = document.getElementById("live2dCanvas");
 
-// Live2D SDKの読み込み
 async function loadLive2DModel() {
     try {
-        const { Live2DModel } = await import("https://unpkg.com/@live2d/cubism-framework@4.2.0");
-        const model = await Live2DModel.from(modelPath);
+        // SDKが読み込まれているか確認
+        if (typeof Live2DCubismCore === "undefined") {
+            throw new Error("Live2D SDKが読み込まれていません！");
+        }
 
-        // モデル表示設定
-        model.scale.set(0.5, 0.5);  // サイズ調整
-        model.position.set(canvas.width / 2, canvas.height / 2);  // 中央配置
-
-        // モデルをキャンバスに描画
+        // PIXI.jsアプリケーションの作成
         const app = new PIXI.Application({
             view: canvas,
             autoStart: true,
@@ -20,6 +17,12 @@ async function loadLive2DModel() {
             resizeTo: window
         });
 
+        // Live2Dモデルを読み込む
+        const model = await PIXI.live2d.Live2DModel.from(modelPath);
+        model.scale.set(0.5, 0.5);  // サイズ調整
+        model.position.set(app.renderer.width / 2, app.renderer.height / 2);  // 中央配置
+
+        // モデルをキャンバスに描画
         app.stage.addChild(model);
 
         // クリックでモーションを変更（仮）
@@ -29,7 +32,7 @@ async function loadLive2DModel() {
 
         console.log("ukyoモデルが表示されました！");
     } catch (e) {
-        console.error("ukyoモデルの読み込みに失敗しました:", e);
+        console.error("ukyoモデルの表示に失敗しました:", e);
     }
 }
 
