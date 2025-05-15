@@ -1,0 +1,59 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "ukyo.moc3",
+		"Textures": [
+			"ukyo.4096/texture_00.png"
+		],
+		"Physics": "ukyo.physics3.json",
+		"DisplayInfo": "ukyo.cdi3.json",
+		"MotionSync": "ukyo.motionsync3.json",
+		"Expressions": [
+			{
+				"Name": "expression1",
+				"File": "expressions/smile.exp3.json"
+			},
+			{
+				"Name": "expression2",
+				"File": "expressions/smile2.exp3.json"
+			}
+		],
+		"Motions": {
+			"surprise": [
+				{
+					"File": "motions/surprise.motion3.json",
+					"FadeInTime": 1,
+					"FadeOutTime": 1
+				}
+			],
+			"angry": [
+				{
+					"File": "motions/angry.motion3.json",
+					"FadeInTime": 1,
+					"FadeOutTime": 1
+				}
+			]
+		}
+	},
+	"Groups": [
+		{
+			"Target": "Parameter",
+			"Name": "EyeBlink",
+			"Ids": [
+				"ParamEyeLOpen",
+				"ParamEyeROpen"
+			]
+		},
+		{
+			"Target": "Parameter",
+			"Name": "LipSync",
+			"Ids": []
+		}
+	],
+	"HitAreas": [
+		{
+			"Id": "HitArea",
+			"Name": "Head"
+		}
+	]
+}
