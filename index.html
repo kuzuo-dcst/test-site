@@ -2,10 +2,27 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>My Live2D Site</title>
+    <title>Live2D Model Viewer</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            background-color: #333;
+        }
+        canvas {
+            display: block;
+            margin: auto;
+            background-color: transparent;
+        }
+    </style>
 </head>
 <body>
-    <h1>Live2Dサイト準備中</h1>
-    <p>ここにモデルを表示します。</p>
+    <!-- Live2D表示用のキャンバス -->
+    <canvas id="live2dCanvas" width="800" height="600"></canvas>
+    <!-- Live2D SDKと制御スクリプトの読み込み -->
+    <script src="script.js"></script>
 </body>
 </html>
