@@ -1,0 +1,8 @@
+{
+  "name": "my-live2d-site",
+  "version": "1.0.0",
+  "description": "Live2D Webサイト",
+  "dependencies": {
+    "pixi-live2d-display": "^0.7.0"
+  }
+}
