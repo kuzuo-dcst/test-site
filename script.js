@@ -1,14 +1,13 @@
-// モデルパスを指定（モデル名「ukyo」に修正）
+// モジュールとして読み込み
+import * as PIXI from "https://unpkg.com/pixi.js@6.5.2/dist/browser/pixi.min.js";
+import { Live2DModel } from "./node_modules/pixi-live2d-display/dist/index.es.js";
+
+// モデルパスを指定
 const modelPath = "./model/ukyo/ukyo.model3.json";
 const canvas = document.getElementById("live2dCanvas");
 
 async function loadLive2DModel() {
     try {
-        // SDKが読み込まれているか確認
-        if (typeof Live2DCubismCore === "undefined") {
-            throw new Error("Live2D SDKが読み込まれていません！");
-        }
-
         // PIXI.jsアプリケーションの作成
         const app = new PIXI.Application({
             view: canvas,
@@ -18,7 +17,7 @@ async function loadLive2DModel() {
         });
 
         // Live2Dモデルを読み込む
-        const model = await PIXI.live2d.Live2DModel.from(modelPath);
+        const model = await Live2DModel.from(modelPath);
         model.scale.set(0.5, 0.5);  // サイズ調整
         model.position.set(app.renderer.width / 2, app.renderer.height / 2);  // 中央配置
 
